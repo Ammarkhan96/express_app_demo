@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,4 +28,5 @@ jobs:
             cd /home/ubuntu/express_app_demo
             git pull origin main
             npm install
-            pm2 restart all
+            pm2 restart all || pm2 start server.js --name "express_app_demo"
+            pm2 save
