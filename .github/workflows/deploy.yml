@@ -35,7 +35,7 @@ jobs:
 
             echo "Updating environment variables..."
             echo "PORT=3000" > .env
-            echo "MESSAGE=🔥 Hello Ammar! This is the updated version deployed from GitHub!" >> .env
+            echo "MESSAGE=🔥 Hello Ammar! This is the updated version of deployed from GitHub!" >> .env
 
             echo "Restarting PM2..."
             pm2 restart all --update-env || pm2 start server.js --name "express_app_demo"
