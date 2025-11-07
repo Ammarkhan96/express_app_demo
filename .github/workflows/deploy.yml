@@ -26,17 +26,16 @@ jobs:
           key: ${{ secrets.EC2_KEY }}
           script: |
             cd /home/ubuntu/express_app_demo
-
             echo "Pulling latest code..."
             git pull origin main
 
             echo "Installing dependencies..."
             npm install
 
-            echo "Setting environment variables..."
+            echo "Updating environment variables..."
             echo "PORT=3000" > .env
-            echo "MESSAGE=Hello Ammar, your app is deployed from GitHub to EC2." >> .env
+            echo "MESSAGE=Hello Ammar, this app was updated from GitHub Actions pipeline!" >> .env
 
-            echo "Restarting PM2 process..."
-            pm2 restart all || pm2 start server.js --name "express_app_demo"
+            echo "Restarting PM2..."
+            pm2 restart all --update-env || pm2 start server.js --name "express_app_demo"
             pm2 save
