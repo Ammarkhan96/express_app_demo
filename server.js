@@ -5,7 +5,7 @@ dotenv.config();
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-const MESSAGE = process.env.MESSAGE || "Hello from the Express on EC2!";
+const MESSAGE = process.env.MESSAGE || "🔥 Hello Ammar! This is the updated version deployed from GitHub!";
 
 app.get("/", (req, res) => {
   res.send(`<h2>${MESSAGE}</h2>`);
